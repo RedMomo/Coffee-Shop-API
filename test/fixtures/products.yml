@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  featured: false
+  roast: MyString
+  single_origin: false
+  wash: MyString
+  altitude: MyString
+  description: MyText
+  price: 1
+  tasting_notes: MyString
+  image_url: MyString
+  additional_info: 1
+
+two:
+  title: MyString
+  featured: false
+  roast: MyString
+  single_origin: false
+  wash: MyString
+  altitude: MyString
+  description: MyText
+  price: 1
+  tasting_notes: MyString
+  image_url: MyString
+  additional_info: 1
