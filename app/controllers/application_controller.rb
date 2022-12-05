@@ -1,6 +1,40 @@
 class ApplicationController < ActionController::API
+    before_action :authorized
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
+
+    def encode_token(payload)
+      JWT.encode(payload, 'hellomars1211') 
+    end
+
+    def decoded_token
+        header = request.headers['Authorization']
+        if header
+            token = header.split(" ")[1]
+            begin
+                JWT.decode(token, 'hellomars1211')
+            rescue JWT::DecodeError
+                nil
+            end
+        end
+    end
+
+    # takes the user id from the decoded token and find the user using the same user id
+    def current_user 
+      if decoded_token
+          user_id = decoded_token[0]['user_id']
+          @user = User.find_by(id: user_id)
+      end
+    end
+  
+    # checks if we have a current_user that is logged in
+    def authorized
+        unless !!current_user
+        render json: { message: 'Please log in' }, status: :unauthorized
+        end
+    end
+
+    
 
     private 
     def record_not_found
