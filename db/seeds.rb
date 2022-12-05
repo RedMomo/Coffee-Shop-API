@@ -29,7 +29,7 @@ Product.create!(id: 9, title: "Blonde Distraction", featured: false, stock: fals
 # Product.create!(id: 12, title: "Paris", featured: "false", inStock: true, roast: "Dark", single_origin: "true", description: "", price: , tasting_notes: "", image_url: "https://zippypixels.com/wp-content/uploads/2018/03/Plain-packaging-pouch-mockup.jpg", additional_infos: 1)
 
 puts "seeding Users..."
-User.create!(id: 1, first_name: "Maria", last_name: "Ameen", email: "LifelineCoffee@gmail.com", password_digest: "password1", username: "Administrator", admin: true)
+# User.create(id: 1, first_name: "Maria", last_name: "Ameen", email: "LifelineCoffee@gmail.com", password_digest: "password1", username: "admin", admin: true)
 
 # User.create!(id: 2, first_naume: "Megan", last_name: "Ingenito", email: "MIngenito@gmail.com", password_digest: "password2", username: "CoffeeHuman", admin: false)
 

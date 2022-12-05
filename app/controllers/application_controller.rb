@@ -1,10 +1,11 @@
 class ApplicationController < ActionController::API
     before_action :authorized
+    # @@secret_key = "#{ENV["SECRET_KEY"]}"
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
 
     def encode_token(payload)
-      JWT.encode(payload, 'hellomars1211') 
+      JWT.encode(payload, 'secretkey123') 
     end
 
     def decoded_token
@@ -12,7 +13,7 @@ class ApplicationController < ActionController::API
         if header
             token = header.split(" ")[1]
             begin
-                JWT.decode(token, 'hellomars1211')
+                JWT.decode(token, "secretkey123")
             rescue JWT::DecodeError
                 nil
             end
@@ -22,8 +23,9 @@ class ApplicationController < ActionController::API
     # takes the user id from the decoded token and find the user using the same user id
     def current_user 
       if decoded_token
-          user_id = decoded_token[0]['user_id']
-          @user = User.find_by(id: user_id)
+          user_id =  decoded_token[0]["user_id"]
+          admin = decoded_token[0]["user_type"]
+          user = User.find_by(id: user_id)
       end
     end
   
