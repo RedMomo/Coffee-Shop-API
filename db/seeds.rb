@@ -31,6 +31,6 @@ Product.create!(id: 9, title: "Blonde Distraction", featured: false, stock: fals
 puts "seeding Users..."
 User.create!(id: 1, first_name: "Maria", last_name: "Ameen", email: "LifelineCoffee@gmail.com", password_digest: "password1", username: "Administrator", admin: true)
 
-User.create!(id: 2, first_name: "Megan", last_name: "Ingenito", email: "MIngenito@gmail.com", password_digest: "password2", username: "CoffeeHuman", admin: false)
+# User.create!(id: 2, first_naume: "Megan", last_name: "Ingenito", email: "MIngenito@gmail.com", password_digest: "password2", username: "CoffeeHuman", admin: false)
 
 

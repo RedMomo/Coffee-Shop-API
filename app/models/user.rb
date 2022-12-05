@@ -5,7 +5,7 @@ class User < ApplicationRecord
     has_many :orders 
     has_many :products
 
-    validates_presence_of :first_name, :last_name, :email, :password, :admin 
+    validates_presence_of :first_name, :last_name, :email, :password_digest, :admin 
     validates :email, uniqueness: true
     validates :username, uniqueness: true
     validates :password, length: { in: 6..20 }
@@ -24,12 +24,12 @@ class User < ApplicationRecord
     # post request to URL/auth/login
 
 
-    fetch("URL/me", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer <token>`,
-        },
-      });
-    # get request to URL/me
+    # fetch("URL/me", {
+    #     method: "GET",
+    #     headers: {
+    #       Authorization: `Bearer <token>`,
+    #     },
+    #   });
+    # # get request to URL/me
 
 end
