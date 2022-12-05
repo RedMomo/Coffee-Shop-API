@@ -1,5 +1,5 @@
 class AuthController < ApplicationController
-    skip_before_action :authorized, only: [:login]
+    # skip_before_action :authorized, only: [:login]
     rescue_from ActiveRecord::RecordNotFound, with: :handle_record_not_found
 
     def login 
@@ -23,6 +23,6 @@ class AuthController < ApplicationController
     end
 
     def handle_record_not_found(e)
-        render json: { message: "User doesn't exist" }, status: :unauthorized
+        render json: { message: "User does not exist" }, status: :unauthorized
     end
 end
