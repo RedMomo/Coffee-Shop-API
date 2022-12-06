@@ -34,6 +34,5 @@ class ProductsController < ApplicationController
     private 
     def product_params
         params.permit(:title, :featured, :roast, :single_origin, :description, :price, :tasting_notes, :image_url)
-        # will need to put additional info back, when it exists
     end
 end

@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
     belongs_to :user, optional: true
     # belongs_to :additional_info, optional: true
-    has_many :cart_items, dependent: :destroy
+    has_many :cart_items
     has_many :carts, through: :cart_items
     has_many :orders
 
