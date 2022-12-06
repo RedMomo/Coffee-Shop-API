@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-    # before_action :authorized
+    before_action :authorized
     # @@secret_key = "#{ENV["SECRET_KEY"]}"
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
@@ -30,11 +30,11 @@ class ApplicationController < ActionController::API
     end
   
     # checks if we have a current_user that is logged in
-    # def authorized
-    #     unless !!current_user
-    #     render json: { message: 'Please log in' }, status: :unauthorized
-    #     end
-    # end
+    def authorized
+        unless !!current_user
+        render json: { message: 'Please log in' }, status: :unauthorized
+        end
+    end
 
     
 

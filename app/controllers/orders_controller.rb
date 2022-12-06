@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
-    def index 
-        order = Order.all
-        render json: order
+    def index
+        user = current_user
+        orders = Order.find_by(user_id: current_user.id)
+        render json: orders, status: :ok
     end
 
     def show 
