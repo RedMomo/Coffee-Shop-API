@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+    skip_before_action :authorized
+
     def index 
         product = Product.all
         render json: product
