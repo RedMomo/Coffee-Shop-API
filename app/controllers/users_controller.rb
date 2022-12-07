@@ -15,6 +15,9 @@ class UsersController < ApplicationController
 
     def create 
         user = User.create!(user_params)
+        if user.save 
+            Cart.create(user_id: user.id, active: true)
+        end
         @token = encode_token(user_id: user.id, admin: user.admin)
         render json: {
             user: UserSerializer.new(user), 

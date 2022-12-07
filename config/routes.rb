@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get "/me", to: "users#me"
   post "/auth/login", to: "auth#login"
 
+  get '/current_cart', to: 'carts#current_cart'
+
   # Defines the root path route ("/")
   # root "articles#index"
 end

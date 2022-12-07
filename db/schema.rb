@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_28_195733) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_06_193218) do
   create_table "additional_infos", force: :cascade do |t|
     t.text "process"
     t.text "origin"
@@ -18,6 +18,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_195733) do
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "cart_items", force: :cascade do |t|
+    t.integer "cart_id"
+    t.integer "product_id"
+    t.integer "quantity"
   end
 
   create_table "carts", force: :cascade do |t|

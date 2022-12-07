@@ -1,4 +1,7 @@
 class CartItemsController < ApplicationController
+    skip_before_action :authorized
+
+
     def index 
         cart = CartItem.all
         render json: cart
