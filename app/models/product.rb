@@ -8,7 +8,7 @@ class Product < ApplicationRecord
     validates_presence_of :title, :roast, :description, :price, :tasting_notes, :image_url
     #will need to put additional info back, when it exists; along with featured, single_origin, and inStock (all booleans that would not be accepted unless set to true)
     validates :title, uniqueness: true
-    # validates :single_origin, inclusion: { in: %w(true false), message: "%{value} is not a valid boolean" }
+    validates :single_origin, inclusion: { in: %w(true false), message: "%{value} is not a valid boolean" }
     # I don't know why this doesn't work, but I'm not sure it's necessary anyway
     # validates :image_url, uniqueness: true
     validates :price, numericality: { greater_than: 0 }
