@@ -1,25 +1,9 @@
-# README
+# Coffee_Shop_API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Introduction
 
-Things you may want to cover:
+This is the accompanying RESTful API for a basic e-commerce coffee shop meant to serve as a refresher on React. 
 
-* Ruby version
+### Technical
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# Coffee-Shop-API
+This database includes valudiations, authentication (with the gem JWT), and routes for full CRUD capabilities on the front end. 
