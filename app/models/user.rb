@@ -3,7 +3,10 @@ class User < ApplicationRecord
 
     has_many :carts
     has_many :orders 
-    has_many :products
+    # has_many :products
+
+    has_many :cart_items, through: :carts
+    has_many :products, through: :cart_items
 
     validates_presence_of :first_name, :last_name, :email, :password_digest, :admin 
     validates :email, uniqueness: true

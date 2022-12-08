@@ -3,8 +3,8 @@ class AuthController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :handle_record_not_found
 
     def login 
-        @user = User.find_by!(username: login_params[:username])
-        if @user.authenticate(params[:password])
+        @user = User.find_by!(username: params[:username])
+        if @user&.authenticate(params[:password])
             @token = encode_token(user_id: @user.id)
             render json: {
                 user: UserSerializer.new(@user),
@@ -18,9 +18,9 @@ class AuthController < ApplicationController
 
     private 
 
-    def login_params 
-        params.permit(:username, :password)
-    end
+    # def login_params 
+    #     params.permit(:username, :password)
+    # end
 
     def handle_record_not_found(e)
         render json: { message: "User does not exist" }, status: :unauthorized

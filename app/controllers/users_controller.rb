@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     # skip_before_action :authorized, only: [:create]
-    skip_before_action :authorized
+    skip_before_action :authorized, only: [:create]
     rescue_from ActiveRecord::RecordInvalid, with: :handle_invalid_record
 
     def index 
@@ -27,6 +27,7 @@ class UsersController < ApplicationController
 
     def me 
         render json: current_user, status: :ok
+        # render json: {hithere: 'hi_there'}
     end
 
     def update 
